@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base resets ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fdfaf6;
+  color: #5c3d7a;
+  overflow-x: hidden;
+}
+
+/* ── Custom scrollbar ────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f5f0ff; }
+::-webkit-scrollbar-thumb { background: #c4b5fd; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #a67cff; }
+
+/* ── Focus visible ───────────────────────────────────── */
+:focus-visible { outline: 2px solid #c4b5fd; outline-offset: 2px; }
+
+/* ── Section smooth anchors ──────────────────────────── */
+section { scroll-margin-top: 70px; }
+
+/* ── Lazy image fade-in ──────────────────────────────── */
+img { transition: opacity 0.4s ease; }
+img[loading="lazy"] { opacity: 0; }
+img[loading="lazy"].loaded { opacity: 1; }
+
+/* ── Form inputs focus ring ──────────────────────────── */
+input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(196,181,253,0.25);
+}
+
+/* ── Utility: hide scrollbar on some els ────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Print styles ────────────────────────────────────── */
+@media print {
+  nav, button { display: none !important; }
+}
