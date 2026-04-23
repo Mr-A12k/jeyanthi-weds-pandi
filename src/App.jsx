@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import Navbar from './components/Navbar';
 import SakuraBackground from './components/SakuraBackground';
-// import SakuraTrees from './components/SakuraTrees';
+// import SakuraTrees from './components/SakuraTrees';  
 import Fireworks from './components/Fireworks';
 import Hero from './sections/Hero';
 import Story from './sections/Story';

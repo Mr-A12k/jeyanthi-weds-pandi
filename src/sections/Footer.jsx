@@ -27,9 +27,10 @@ const Footer = ({ data }) => {
           <p className="font-sans text-[10px] tracking-widest uppercase" style={{ color: '#b89ec8', opacity: 0.8 }}>
             Copyrights reserved by Kabix
           </p>
-          <a 
-            href="https://kabix.fun" 
-            target="_blank" 
+          <span className="font-sans text-[10px] mr-2 tracking-widest uppercase" style={{ color: '#b89ec8', opacity: 0.8 }}>Visit</span>
+          <a
+            href="https://kabix.fun"
+            target="_blank"
             rel="noopener noreferrer"
             className="font-sans text-[10px] tracking-widest uppercase mt-1 inline-block transition-colors duration-200"
             style={{ color: '#8b6fa6' }}

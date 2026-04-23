@@ -98,7 +98,7 @@ const Gallery = ({ data }) => {
 
   return (
     <section id="gallery" ref={sectionRef} className="relative py-24 md:py-36 overflow-hidden bg-transparent">
-      <div 
+      <div
         className="absolute inset-0 z-0"
         style={{ background: 'linear-gradient(180deg, #fff5f7 0%, #fdfaf6 50%, #f5f0ff 100%)' }}
       />
@@ -122,9 +122,6 @@ const Gallery = ({ data }) => {
             <GalleryItem key={item.id} item={item} index={index} />
           ))}
         </div>
-        <p className="text-center mt-8 font-sans text-xs tracking-widest uppercase" style={{ color: '#c4a8d4', letterSpacing: '0.2em' }}>
-          Replace placeholder images with your actual photos in weddingData.js
-        </p>
       </div>
     </section>
   );

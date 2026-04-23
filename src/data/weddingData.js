@@ -116,15 +116,15 @@ const weddingData = {
   gallery: [
     {
       id: 1,
-      src: null,
+      src: '/assets/images/img1.jpeg',
       alt: "Couple Portrait 1",
       label: "A quiet moment",
     },
     {
       id: 2,
-      src: null,
+      src: '/assets/images/main_couple_1.jpg',
       alt: "Couple Portrait 2",
-      label: "Golden hour",
+      label: "Our beautiful journey",
     },
     {
       id: 3,
