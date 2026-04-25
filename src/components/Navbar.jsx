@@ -5,7 +5,7 @@ const navLinks = [
   { label: 'Timeline', href: '#timeline' },
   { label: 'Events', href: '#events' },
   { label: 'Gallery', href: '#gallery' },
-  { label: 'RSVP', href: '#rsvp' },
+  // { label: 'RSVP', href: '#rsvp' },
 ];
 
 const Navbar = () => {

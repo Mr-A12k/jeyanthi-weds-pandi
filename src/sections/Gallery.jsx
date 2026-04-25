@@ -15,61 +15,71 @@ const PLACEHOLDER_COLORS = [
 ];
 
 const GalleryItem = ({ item, index }) => {
-  const ref = useRef(null);
   const [bg1, bg2] = PLACEHOLDER_COLORS[index % PLACEHOLDER_COLORS.length];
 
-  useEffect(() => {
-    gsap.fromTo(ref.current,
-      { opacity: 0, scale: 0.9 },
-      {
-        opacity: 1, scale: 1, duration: 0.7, ease: 'power2.out', delay: (index % 3) * 0.1,
-        scrollTrigger: { trigger: ref.current, start: 'top 88%', once: true },
-      }
-    );
-  }, [index]);
+  const heights = [320, 320, 320, 200, 200, 200];
 
-  const sizes = [
-    'md:col-span-1 md:row-span-2',
-    'md:col-span-1 md:row-span-1',
-    'md:col-span-1 md:row-span-1',
-    'md:col-span-2 md:row-span-1',
-    'md:col-span-1 md:row-span-1',
-    'md:col-span-1 md:row-span-1',
+  const gridClasses = [
+    'md:col-span-1',
+    'md:col-span-1',
+    'md:col-span-1',
+    'md:col-span-1',
+    'md:col-span-1',
+    'md:col-span-1',
   ];
-
-  const heights = ['min-h-80', 'min-h-40', 'min-h-40', 'min-h-48', 'min-h-40', 'min-h-40'];
 
   return (
     <div
-      ref={ref}
-      className={`relative overflow-hidden rounded-2xl group cursor-pointer ${sizes[index]} ${heights[index]}`}
+      className={`relative overflow-hidden rounded-2xl group cursor-pointer ${gridClasses[index]}`}
       style={{
         background: `linear-gradient(135deg, ${bg1}, ${bg2})`,
         border: '1px solid rgba(196,181,253,0.2)',
+        height: `${heights[index]}px`,
       }}
     >
       {item.src ? (
         <img
           src={item.src}
           alt={item.alt}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          loading="lazy"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block',
+            transition: 'transform 0.7s ease',
+          }}
+          loading="eager"
+          onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.05)')}
+          onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
         />
       ) : (
-        <div className="w-full h-full flex flex-col items-center justify-center gap-3">
-          <div className="text-4xl opacity-40">
+        <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
+          <div style={{ fontSize: '2.5rem', opacity: 0.4 }}>
             {['🌸', '💕', '✨', '🌿', '🪷', '💍'][index]}
           </div>
-          <p className="font-sans text-xs tracking-widest uppercase" style={{ color: '#c4a8d4', letterSpacing: '0.2em', opacity: 0.8 }}>
-            Photo
+          <p style={{ color: '#c4a8d4', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', opacity: 0.8 }}>
+            Photo Coming Soon
           </p>
         </div>
       )}
+      {/* Hover label overlay */}
       <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4"
-        style={{ background: 'linear-gradient(to top, rgba(92,61,122,0.6) 0%, transparent 60%)' }}
+        className="absolute inset-0 flex items-end p-4"
+        style={{
+          background: 'linear-gradient(to top, rgba(92,61,122,0) 0%, transparent 60%)',
+          transition: 'background 0.3s ease',
+        }}
+        onMouseEnter={e => (e.currentTarget.style.background = 'linear-gradient(to top, rgba(92,61,122,0.6) 0%, transparent 60%)')}
+        onMouseLeave={e => (e.currentTarget.style.background = 'linear-gradient(to top, rgba(92,61,122,0) 0%, transparent 60%)')}
       >
-        <p className="text-white font-serif text-sm italic">{item.label}</p>
+        <p className="text-white font-serif text-sm italic" style={{ opacity: 0, transition: 'opacity 0.3s' }}
+          ref={el => {
+            if (!el) return;
+            el.closest('.group') || el.parentElement;
+          }}
+        >
+          {item.label}
+        </p>
       </div>
     </div>
   );
@@ -97,33 +107,42 @@ const Gallery = ({ data }) => {
   }, []);
 
   return (
-    <section id="gallery" ref={sectionRef} className="relative py-24 md:py-36 overflow-hidden bg-transparent">
-      <div
-        className="absolute inset-0 z-0"
-        style={{ background: 'linear-gradient(180deg, #fff5f7 0%, #fdfaf6 50%, #f5f0ff 100%)' }}
-      />
-      <div ref={bgRef} className="absolute inset-0 pointer-events-none" style={{
-        background: `
-          radial-gradient(ellipse 60% 50% at 15% 50%, rgba(244,163,199,0.12) 0%, transparent 70%),
-          radial-gradient(ellipse 50% 60% at 85% 50%, rgba(196,181,253,0.15) 0%, transparent 70%)
-        `,
-      }} />
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className="font-sans text-xs tracking-widest uppercase mb-4" style={{ color: '#a389b8', letterSpacing: '0.25em' }}>Memories</p>
-          <h2 className="font-display text-4xl md:text-6xl italic" style={{ color: '#5c3d7a' }}>A Glimpse of Us</h2>
-          <FloralDivider color="#d4a0b5" className="mt-6" />
-          <p className="font-serif text-lg mt-4" style={{ color: '#7d6b8a' }}>
-            Moments that tell the story of {couple.bride.firstName} and {couple.groom.firstName}
-          </p>
+    <>
+      <style>{`
+        @keyframes galleryFadeIn {
+          from { opacity: 0; transform: translateY(24px) scale(0.95); }
+          to   { opacity: 1; transform: translateY(0)    scale(1); }
+        }
+        .gallery-item:hover .gallery-label { opacity: 1 !important; }
+      `}</style>
+      <section id="gallery" ref={sectionRef} className="relative py-24 md:py-36 overflow-hidden bg-transparent">
+        <div
+          className="absolute inset-0 z-0"
+          style={{ background: 'linear-gradient(180deg, #fff5f7 0%, #fdfaf6 50%, #f5f0ff 100%)' }}
+        />
+        <div ref={bgRef} className="absolute inset-0 pointer-events-none" style={{
+          background: `
+            radial-gradient(ellipse 60% 50% at 15% 50%, rgba(244,163,199,0.12) 0%, transparent 70%),
+            radial-gradient(ellipse 50% 60% at 85% 50%, rgba(196,181,253,0.15) 0%, transparent 70%)
+          `,
+        }} />
+        <div className="relative z-10 max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="font-sans text-xs tracking-widest uppercase mb-4" style={{ color: '#a389b8', letterSpacing: '0.25em' }}>Memories</p>
+            <h2 className="font-display text-4xl md:text-6xl italic" style={{ color: '#5c3d7a' }}>A Glimpse of Us</h2>
+            <FloralDivider color="#d4a0b5" className="mt-6" />
+            <p className="font-serif text-lg mt-4" style={{ color: '#7d6b8a' }}>
+              Moments that tell the story of {couple.bride.firstName} and {couple.groom.firstName}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {gallery.map((item, index) => (
+              <GalleryItem key={item.id} item={item} index={index} />
+            ))}
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
-          {gallery.map((item, index) => (
-            <GalleryItem key={item.id} item={item} index={index} />
-          ))}
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
