@@ -17,15 +17,13 @@ const PLACEHOLDER_COLORS = [
 const GalleryItem = ({ item, index }) => {
   const [bg1, bg2] = PLACEHOLDER_COLORS[index % PLACEHOLDER_COLORS.length];
 
-  const heights = [320, 320, 320, 200, 200, 200];
-
   const gridClasses = [
-    'md:col-span-1',
-    'md:col-span-1',
-    'md:col-span-1',
-    'md:col-span-1',
-    'md:col-span-1',
-    'md:col-span-1',
+    'col-span-1 sm:col-span-2 md:col-span-2 row-span-1 sm:row-span-2 md:row-span-2', // Item 1 (Main couple) - Large Square
+    'col-span-1 sm:col-span-1 md:col-span-1 row-span-1 sm:row-span-1 md:row-span-1', // Item 2 (Wedding) - Square
+    'col-span-1 sm:col-span-1 md:col-span-1 row-span-1 sm:row-span-1 md:row-span-1', // Item 3 (Romantic) - Square
+    'col-span-1 sm:col-span-1 md:col-span-1 row-span-1 sm:row-span-1 md:row-span-1', // Item 4 (Sherwani) - Square
+    'col-span-1 sm:col-span-1 md:col-span-1 row-span-1 sm:row-span-1 md:row-span-1', // Item 5 (Candid) - Square
+    'col-span-1 sm:col-span-2 md:col-span-1 row-span-1 sm:row-span-2 md:row-span-1', // Item 6 (Temple) - Large Square on SM, Square on MD
   ];
 
   return (
@@ -34,50 +32,33 @@ const GalleryItem = ({ item, index }) => {
       style={{
         background: `linear-gradient(135deg, ${bg1}, ${bg2})`,
         border: '1px solid rgba(196,181,253,0.2)',
-        height: `${heights[index]}px`,
       }}
     >
       {item.src ? (
         <img
           src={item.src}
           alt={item.alt}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            display: 'block',
-            transition: 'transform 0.7s ease',
-          }}
+          className="w-full h-full object-cover object-[center_20%] block transition-transform duration-700 ease-out group-hover:scale-110"
           loading="eager"
-          onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.05)')}
-          onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
         />
       ) : (
-        <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
-          <div style={{ fontSize: '2.5rem', opacity: 0.4 }}>
+        <div className="w-full h-full flex flex-col items-center justify-center gap-3">
+          <div className="text-4xl opacity-40">
             {['🌸', '💕', '✨', '🌿', '🪷', '💍'][index]}
           </div>
-          <p style={{ color: '#c4a8d4', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', opacity: 0.8 }}>
+          <p className="font-sans text-xs tracking-widest uppercase text-[#c4a8d4] opacity-80" style={{ letterSpacing: '0.2em' }}>
             Photo Coming Soon
           </p>
         </div>
       )}
       {/* Hover label overlay */}
       <div
-        className="absolute inset-0 flex items-end p-4"
+        className="absolute inset-0 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
         style={{
-          background: 'linear-gradient(to top, rgba(92,61,122,0) 0%, transparent 60%)',
-          transition: 'background 0.3s ease',
+          background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%)',
         }}
-        onMouseEnter={e => (e.currentTarget.style.background = 'linear-gradient(to top, rgba(92,61,122,0.6) 0%, transparent 60%)')}
-        onMouseLeave={e => (e.currentTarget.style.background = 'linear-gradient(to top, rgba(92,61,122,0) 0%, transparent 60%)')}
       >
-        <p className="text-white font-serif text-sm italic" style={{ opacity: 0, transition: 'opacity 0.3s' }}
-          ref={el => {
-            if (!el) return;
-            el.closest('.group') || el.parentElement;
-          }}
-        >
+        <p className="text-white font-serif text-xl md:text-2xl italic transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
           {item.label}
         </p>
       </div>
@@ -135,7 +116,7 @@ const Gallery = ({ data }) => {
               Moments that tell the story of {couple.bride.firstName} and {couple.groom.firstName}
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[250px] md:auto-rows-[280px] grid-flow-dense">
             {gallery.map((item, index) => (
               <GalleryItem key={item.id} item={item} index={index} />
             ))}

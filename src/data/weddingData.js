@@ -53,46 +53,17 @@ const weddingData = {
   ],
 
   events: [
-    // {
-    //   id: 1,
-    //   name: "Mehendi Ceremony",
-    //   date: "May 12, 2026",
-    //   day: "Friday",
-    //   time: "4:00 PM – 9:00 PM",
-    //   venue: "The Bride's Residence",
-    //   address: "Kovilpatti, Tamil Nadu",
-    //   description:
-    //     "An intimate evening of henna, music, and heartfelt celebrations with close family and friends.",
-    //   dresscode: "Pastel & Ethnic Wear",
-    //   icon: "🌿",
-    //   mapLink: "https://maps.google.com",
-    // },
-    // {
-    //   id: 2,
-    //   name: "Haldi & Sangeet",
-    //   date: "May 13, 2026",
-    //   day: "Saturday",
-    //   time: "10:00 AM – 8:00 PM",
-    //   venue: "Sri Mahalakshmi Kalyana Mahal",
-    //   address: "Anna Nagar, Kovilpatti – 600 040",
-    //   description:
-    //     "A vibrant celebration filled with turmeric blessings, dance performances, and joyful music into the evening.",
-    //   dresscode: "Yellow / Bright Colors",
-    //   icon: "🌻",
-    //   mapLink: "https://maps.google.com",
-    // },
     {
       id: 1,
-      name: "Wedding Reception",
+      name: "Engagement",
       date: "May 24, 2026",
       day: "Sunday",
-      time: "6:30 PM – 10:30 PM",
-      venue: "Sri Mahalakshmi Kalyana Mahal",
-      address: "Anna Nagar, Kovilpatti – 600 040",
+      time: "7:00 PM onwards",
+      venue: "Bairava Mahal",
+      address: "Loyal Mill Colony, Kovilpatti",
       description:
-        "Join the newlyweds for a grand celebration of love, good food, and memories that will last a lifetime.",
-      // dresscode: "Formal / Semi-Formal",
-      icon: "🥂",
+        "Join us for our engagement ceremony and evening celebrations as we kick off our wedding festivities.",
+      icon: "💍",
       mapLink: "https://maps.google.com",
     },
     {
@@ -100,17 +71,28 @@ const weddingData = {
       name: "Wedding Ceremony",
       date: "May 25, 2026",
       day: "Monday",
-      time: "7:30 AM – 12:00 PM",
-      venue: "Sri Mahalakshmi Kalyana Mahal",
-      address: "Anna Nagar, Kovilpatti – 600 040",
+      time: "9:00 AM – 10:30 AM",
+      venue: "C.S.I. St. Paul's Church",
+      address: "Kovilpatti",
       description:
-        "The sacred union of Selva Jeyanthi and Pandeeswaran, blessed under the auspicious morning sky with Vedic traditions.",
-      // dresscode: "Silk Sarees & Traditional Attire",
-      icon: "🪷",
+        "The sacred union of Selva Jeyanthi and Pandeeswaran, solemnized in the presence of God, family, and friends.",
+      icon: "⛪",
       mapLink: "https://maps.google.com",
       isMain: true,
     },
-
+    {
+      id: 3,
+      name: "Wedding Feast & Reception",
+      date: "May 25, 2026",
+      day: "Monday",
+      time: "10:30 AM onwards",
+      venue: "Bairava Mahal",
+      address: "Loyal Mill Colony, Kovilpatti",
+      description:
+        "Following the wedding ceremony, join the newlyweds for a joyous celebration, delicious food, and beautiful memories.",
+      icon: "🥂",
+      mapLink: "https://maps.google.com",
+    },
   ],
 
   gallery: [
