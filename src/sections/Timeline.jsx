@@ -101,9 +101,7 @@ const Timeline = ({ data }) => {
           <FloralDivider color="#c4b5fd" className="mt-6" />
         </div>
 
-        {/* Timeline */}
         <div className="relative">
-          {/* Center line */}
           <div
             className="timeline-line absolute left-1/2 -translate-x-px top-0 bottom-0 w-0.5 hidden md:block"
             style={{ background: 'linear-gradient(to bottom, #ddd6f3, #f9d5e5, #ddd6f3)' }}
@@ -112,7 +110,6 @@ const Timeline = ({ data }) => {
           <div className="space-y-12 md:space-y-0">
             {story.map((item, i) => (
               <div key={item.year} className="relative md:grid md:grid-cols-2 md:gap-12 md:mb-16">
-                {/* Left side */}
                 {i % 2 === 0 ? (
                   <>
                     <div className="timeline-card md:text-right">
@@ -133,7 +130,6 @@ const Timeline = ({ data }) => {
                         </p>
                       </div>
                     </div>
-                    {/* Center dot */}
                     <div className="hidden md:flex absolute left-1/2 top-6 -translate-x-1/2 items-center justify-center">
                       <div
                         className="timeline-dot w-12 h-12 rounded-full flex items-center justify-center text-white font-display text-sm font-bold shadow-md z-10"
@@ -147,7 +143,6 @@ const Timeline = ({ data }) => {
                 ) : (
                   <>
                     <div className="hidden md:block" />
-                    {/* Center dot */}
                     <div className="hidden md:flex absolute left-1/2 top-6 -translate-x-1/2 items-center justify-center">
                       <div
                         className="timeline-dot w-12 h-12 rounded-full flex items-center justify-center text-white font-display text-sm font-bold shadow-md z-10"

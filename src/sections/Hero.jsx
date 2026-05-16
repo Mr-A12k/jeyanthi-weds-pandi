@@ -89,7 +89,7 @@ const Hero = ({ data }) => {
       </svg>
 
       {/* Main content */}
-      <div className="relative z-10 text-center px-6 mx-auto flex flex-col items-center pt-24 pb-12 lg:pt-32">
+      <div className="relative z-10 text-center mx-auto flex flex-col items-center pt-24 lg:pt-32 sm:px-0">
         <p
           ref={subRef}
           className="font-sans text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-6 opacity-0"
@@ -132,7 +132,7 @@ const Hero = ({ data }) => {
           <CountdownTimer targetDate={wedding.countdownTarget} />
         </div>
 
-        <a
+        {/* <a
           href="#story"
           className="inline-block mt-12 sm:mt-16 font-sans text-xs sm:text-sm tracking-widest uppercase px-10 py-4 rounded-full transition-all duration-300 border hover:shadow-lg hover:shadow-purple-100/50"
           style={{
@@ -151,7 +151,7 @@ const Hero = ({ data }) => {
           }}
         >
           Our Story
-        </a>
+        </a> */}
 
         {/* Scroll indicator */}
         <div className="mt-16 sm:mt-20 flex flex-col items-center gap-2 animate-bounce opacity-50">

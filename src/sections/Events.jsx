@@ -53,8 +53,8 @@ const EventCard = ({ event, index }) => {
     >
       {isMain && (
         <div
-          className="absolute top-4 right-4 font-sans text-xs tracking-widest uppercase px-3 py-1 rounded-full"
-          style={{ background: 'linear-gradient(135deg, #c4b5fd, #8b5cf6)', color: '#fff', letterSpacing: '0.15em' }}
+          className="absolute top-4 right-4 font-sans text-[8px] tracking-widest uppercase px-3 py-1 rounded-full"
+          style={{ background: 'linear-gradient(135deg, #c4b5fd, #8b5cf6)', color: '#fff', letterSpacing: '0.10em' }}
         >
           Main Event
         </div>
@@ -109,7 +109,7 @@ const EventCard = ({ event, index }) => {
 const Events = ({ data }) => {
   const { events } = data;
   return (
-    <section id="events" className="relative py-24 md:py-36 overflow-hidden bg-transparent">
+    <section id="events" className="relative pt-24 md:pt-36 overflow-hidden bg-transparent">
       <div 
         className="absolute inset-0 z-0"
         style={{ background: 'linear-gradient(180deg, #fdfaf6 0%, #f5f0ff 50%, #fff5f7 100%)' }}

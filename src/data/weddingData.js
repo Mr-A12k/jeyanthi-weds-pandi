@@ -64,7 +64,7 @@ const weddingData = {
       description:
         "Join us for our engagement ceremony and evening celebrations as we kick off our wedding festivities.",
       icon: "💍",
-      mapLink: "https://maps.google.com",
+      mapLink: "https://www.google.com/maps/place/Bairava+Mahal/@9.1804328,77.883873,827m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3b06b3004d89796d:0x323ce73d374ea447!8m2!3d9.1804328!4d77.883873!16s%2Fg%2F11ykrpknfm!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D",
     },
     {
       id: 2,
@@ -77,7 +77,7 @@ const weddingData = {
       description:
         "The sacred union of Selva Jeyanthi and Pandeeswaran, solemnized in the presence of God, family, and friends.",
       icon: "⛪",
-      mapLink: "https://maps.google.com",
+      mapLink: "https://www.google.com/maps/place/Bairava+Mahal/@9.1804328,77.883873,827m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3b06b3004d89796d:0x323ce73d374ea447!8m2!3d9.1804328!4d77.883873!16s%2Fg%2F11ykrpknfm!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D",
       isMain: true,
     },
     {
@@ -91,46 +91,46 @@ const weddingData = {
       description:
         "Following the wedding ceremony, join the newlyweds for a joyous celebration, delicious food, and beautiful memories.",
       icon: "🥂",
-      mapLink: "https://maps.google.com",
+      mapLink: "https://www.google.com/maps/place/Bairava+Mahal/@9.1804328,77.883873,827m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3b06b3004d89796d:0x323ce73d374ea447!8m2!3d9.1804328!4d77.883873!16s%2Fg%2F11ykrpknfm!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D",
     },
   ],
 
   gallery: [
     {
       id: 1,
-      src: '/assets/images/gallery_main.jpeg',
+      src: '/assets/images/img5.jpeg',
       alt: "Selva Jeyanthi and Pandeeswaran",
-      label: "A quiet moment",
+      label: "",
     },
     {
       id: 2,
-      src: '/assets/images/gallery_1.png',
+      src: '/assets/images/002.png',
       alt: "Wedding Ceremony Portrait",
-      label: "Our wedding day",
+      label: "",
     },
     {
       id: 3,
-      src: '/assets/images/gallery_2.png',
+      src: '/assets/images/img3.jpeg',
       alt: "Romantic Garden Portrait",
-      label: "Together always",
+      label: "",
     },
     {
       id: 4,
-      src: '/assets/images/gallery_3.png',
+      src: '/assets/images/001.png',
       alt: "Evening Portrait",
-      label: "Joy & laughter",
+      label: "",
     },
     {
       id: 5,
-      src: '/assets/images/gallery_4.png',
+      src: '/assets/images/003.png',
       alt: "Candid Moment",
-      label: "Cherished forever",
+      label: "",
     },
     {
       id: 6,
-      src: '/assets/images/gallery_5.png',
+      src: '/assets/images/004.png',
       alt: "Temple Portrait",
-      label: "Our story",
+      label: "",
     },
   ],
 

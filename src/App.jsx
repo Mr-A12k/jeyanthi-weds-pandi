@@ -7,8 +7,8 @@ import SakuraBackground from './components/SakuraBackground';
 // import SakuraTrees from './components/SakuraTrees';  
 import Fireworks from './components/Fireworks';
 import Hero from './sections/Hero';
-import Story from './sections/Story';
-import Timeline from './sections/Timeline';
+// import Story from './sections/Story';
+// import Timeline from './sections/Timeline';
 import Events from './sections/Events';
 import Gallery from './sections/Gallery';
 // import RSVP from './sections/RSVP';
@@ -42,8 +42,8 @@ function App() {
       <Navbar />
       <main style={{ position: 'relative' }}>
         <Hero data={weddingData} />
-        <Story data={weddingData} />
-        <Timeline data={weddingData} />
+        {/* <Story data={weddingData} /> */}
+        {/* <Timeline data={weddingData} /> */}
         <Events data={weddingData} />
         <Gallery data={weddingData} />
         {/* <RSVP data={weddingData} /> */}
