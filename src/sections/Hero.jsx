@@ -8,6 +8,7 @@ const Hero = ({ data }) => {
   const containerRef = useRef(null);
   const bgRef = useRef(null);
   const titleRef = useRef(null);
+  const mainTitleRef = useRef(null);
   const subRef = useRef(null);
   const dateRef = useRef(null);
   const countdownRef = useRef(null);
@@ -18,7 +19,8 @@ const Hero = ({ data }) => {
 
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-      tl.fromTo(subRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, delay: 0.3 })
+      tl.fromTo(mainTitleRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, delay: 0.3 })
+        .fromTo(subRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, delay: 0.3 })
         .fromTo(titleRef.current.children,
           { opacity: 0, y: 50 },
           { opacity: 1, y: 0, duration: 1.2, stagger: 0.2 },
@@ -52,7 +54,7 @@ const Hero = ({ data }) => {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-transparent"
     >
       {/* Background Gradient Layer */}
-      <div 
+      <div
         className="absolute inset-0 z-0"
         style={{ background: 'linear-gradient(160deg, #fff5f7 0%, #f5f0ff 40%, #fff0f5 70%, #fdfaf6 100%)' }}
       />
@@ -72,24 +74,31 @@ const Hero = ({ data }) => {
 
       {/* Corner ornaments */}
       <svg className="absolute top-4 left-4 w-12 h-12 opacity-20 sm:top-6 sm:left-6 sm:w-16 sm:h-16 md:top-8 md:left-8 md:w-20 md:h-20" viewBox="0 0 80 80" fill="none">
-        <path d="M0 0 Q40 0 40 40 Q0 40 0 0Z" fill="#c4b5fd"/>
-        <path d="M0 0 Q20 0 20 20 Q0 20 0 0Z" fill="#f9d5e5"/>
+        <path d="M0 0 Q40 0 40 40 Q0 40 0 0Z" fill="#c4b5fd" />
+        <path d="M0 0 Q20 0 20 20 Q0 20 0 0Z" fill="#f9d5e5" />
       </svg>
       <svg className="absolute top-4 right-4 w-12 h-12 opacity-20 sm:top-6 sm:right-6 sm:w-16 sm:h-16 md:top-8 md:right-8 md:w-20 md:h-20" viewBox="0 0 80 80" fill="none" style={{ transform: 'scaleX(-1)' }}>
-        <path d="M0 0 Q40 0 40 40 Q0 40 0 0Z" fill="#c4b5fd"/>
-        <path d="M0 0 Q20 0 20 20 Q0 20 0 0Z" fill="#f9d5e5"/>
+        <path d="M0 0 Q40 0 40 40 Q0 40 0 0Z" fill="#c4b5fd" />
+        <path d="M0 0 Q20 0 20 20 Q0 20 0 0Z" fill="#f9d5e5" />
       </svg>
       <svg className="absolute bottom-4 left-4 w-12 h-12 opacity-20 sm:bottom-6 sm:left-6 sm:w-16 sm:h-16 md:bottom-8 md:left-8 md:w-20 md:h-20" viewBox="0 0 80 80" fill="none" style={{ transform: 'scaleY(-1)' }}>
-        <path d="M0 0 Q40 0 40 40 Q0 40 0 0Z" fill="#c4b5fd"/>
-        <path d="M0 0 Q20 0 20 20 Q0 20 0 0Z" fill="#f9d5e5"/>
+        <path d="M0 0 Q40 0 40 40 Q0 40 0 0Z" fill="#c4b5fd" />
+        <path d="M0 0 Q20 0 20 20 Q0 20 0 0Z" fill="#f9d5e5" />
       </svg>
       <svg className="absolute bottom-4 right-4 w-12 h-12 opacity-20 sm:bottom-6 sm:right-6 sm:w-16 sm:h-16 md:bottom-8 md:right-8 md:w-20 md:h-20" viewBox="0 0 80 80" fill="none" style={{ transform: 'scale(-1,-1)' }}>
-        <path d="M0 0 Q40 0 40 40 Q0 40 0 0Z" fill="#c4b5fd"/>
-        <path d="M0 0 Q20 0 20 20 Q0 20 0 0Z" fill="#f9d5e5"/>
+        <path d="M0 0 Q40 0 40 40 Q0 40 0 0Z" fill="#c4b5fd" />
+        <path d="M0 0 Q20 0 20 20 Q0 20 0 0Z" fill="#f9d5e5" />
       </svg>
 
       {/* Main content */}
       <div className="relative z-10 text-center mx-auto flex flex-col items-center pt-24 lg:pt-32 sm:px-0">
+        <p
+          ref={mainTitleRef}
+          className="font-sans text-[15px] sm:text-l px-5 tracking-[0.2em] sm:tracking-[0.3em] mb-6 opacity-0"
+          style={{ color: '#a389b8' }}
+        >
+          The Lord has done great things for us, and we are filled with joy. - Psalm 126:3
+        </p>
         <p
           ref={subRef}
           className="font-sans text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-6 opacity-0"
@@ -102,7 +111,7 @@ const Hero = ({ data }) => {
           <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl italic opacity-0" style={{ color: '#5c3d7a', lineHeight: 1.1 }}>
             {couple.bride.firstName}
           </h1>
-          
+
           <div className="flex items-center justify-center gap-3 sm:gap-6 my-4 opacity-0">
             <div className="h-px w-8 sm:w-16 md:w-24 opacity-50" style={{ background: 'linear-gradient(to right, transparent, #d4a0b5)' }} />
             <span className="font-serif text-2xl sm:text-3xl md:text-4xl italic" style={{ color: '#d4a0b5' }}>&amp;</span>
