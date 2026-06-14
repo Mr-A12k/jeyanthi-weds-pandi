@@ -1,6 +1,8 @@
 # 💍 Wedding Invitation Website
 ### Selva Jeyanthi J & Pandeeswaran G
 
+### Site Demo : https://jeyanthi-weds-pandi.vercel.app/
+
 A beautiful, elegant single-page wedding invitation website built with React + Vite, TailwindCSS, and GSAP ScrollTrigger animations.
 
 ---
